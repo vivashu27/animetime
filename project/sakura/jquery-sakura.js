@@ -65,7 +65,7 @@
         // Declarations.
         var documentHeight = $(document).height();
         var documentWidth = $(document).width();
-        var sakura = $('<div class="' + options.className + '" />');
+        var sakura = $('<div />').addClass(options.className);
 
         // Set the overflow-x CSS property on the body to prevent horizontal scrollbars.
         $('body').css({ 'overflow-x': 'hidden' });
