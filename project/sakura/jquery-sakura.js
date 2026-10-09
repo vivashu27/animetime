@@ -79,6 +79,14 @@
             // Get one random animation of each type and randomize fall time of the petals.
             var blowAnimation = options.blowAnimations[Math.floor(Math.random() * options.blowAnimations.length)];
             var swayAnimation = options.swayAnimations[Math.floor(Math.random() * options.swayAnimations.length)];
+
+            // Allowlist validation to reduce CSS animation injection risk
+            if ($.inArray(blowAnimation, defaults.blowAnimations) === -1) {
+                blowAnimation = defaults.blowAnimations[0];
+            }
+            if ($.inArray(swayAnimation, defaults.swayAnimations) === -1) {
+                swayAnimation = defaults.swayAnimations[0];
+            }
             var fallTime = (Math.round(documentHeight * 0.007) + Math.random() * 5) * options.fallSpeed;
 
             var animations = 'fall ' + fallTime + 's linear 0s 1' + ', ' +
